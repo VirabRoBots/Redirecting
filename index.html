@@ -71,23 +71,6 @@
             margin-top: 15px;
         }
 
-        button {
-            background: rgba(0, 255, 204, 0.2);
-            border: 1px solid #00ffcc;
-            color: #00ffcc;
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-size: 14px;
-            margin-top: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        button:hover {
-            background: rgba(0, 255, 204, 0.3);
-            transform: scale(1.02);
-        }
-
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
@@ -105,21 +88,18 @@
         }
     </style>
     <script>
-        const data = window.location.search.substring(1);
-        
-        function openTelegram() {
-            if (data) {
-                window.location.href = "tg://resolve?domain=Moviesearcherxyzbot&start=" + data;
-            }
-        }
-        
         function closePage() {
             window.close();
         }
         
+        const data = window.location.search.substring(1);
+        
         if (data) {
             setTimeout(() => {
-                openTelegram();
+                window.location.href = "tg://resolve?domain=Moviesearcherxyzbot&start=" + data;
+                setTimeout(() => {
+                    closePage();
+                }, 500);
             }, 1500);
         }
     </script>
@@ -129,9 +109,7 @@
         <div class="loader"></div>
         <h1>Redirecting...</h1>
         <p>Please wait while we redirect you to Telegram</p>
-        <p>If the page doesn't close automatically, click below</p>
         <div class="bot-name">⚡ Moviesearcherxyzbot</div>
-        <button onclick="closePage()">✕ Close This Page</button>
     </div>
 </body>
 </html>
