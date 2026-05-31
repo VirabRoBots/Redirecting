@@ -71,6 +71,24 @@
             margin-top: 15px;
         }
 
+        .close-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.02);
+        }
+
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
@@ -108,8 +126,9 @@
     <div class="card">
         <div class="loader"></div>
         <h1>Redirecting...</h1>
-        <p>Please wait while we redirect you to Telegram</p>
-        <div class="bot-name">⚡ Moviesearcherxyzbot</div>
+        <p>Please Wait While We Redirect You To Telegram</p>
+        <div class="bot-name">⚡ MovieSearcherXYZBot</div>
+        <button class="close-btn" onclick="closePage()">Close</button>
     </div>
 </body>
 </html>
