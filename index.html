@@ -59,6 +59,20 @@
             margin-bottom: 24px;
         }
 
+        .btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #00ffcc, #0099ff);
+            border: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+
         .bot-name {
             color: #00ffcc;
             font-size: 13px;
@@ -66,6 +80,7 @@
             display: inline-block;
             padding: 6px 16px;
             border-radius: 50px;
+            margin-top: 16px;
         }
 
         @keyframes spin {
@@ -87,19 +102,25 @@
 </head>
 <body>
     <div class="card">
-        <div class="loader"></div>
+        <div class="loader" id="loader"></div>
         <h1>Redirecting...</h1>
-        <p>Taking you to Telegram</p>
+        <p id="message">Taking you to Telegram</p>
+        <button class="btn" onclick="closeBrowser()">✅ Continue to Bot</button>
         <div class="bot-name">Moviesearcherxyzbot</div>
     </div>
 
     <script>
         const queryString = window.location.search.substring(1);
         
+        function closeBrowser() {
+            window.location.href = "tg://resolve?domain=Moviesearcherxyzbot&start=" + queryString;
+        }
+        
         if (queryString) {
             setTimeout(() => {
-                window.location.href = "tg://resolve?domain=Moviesearcherxyzbot&start=" + queryString;
-            }, 1200);
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('message').innerHTML = 'Click the button below to continue';
+            }, 1500);
         }
     </script>
 </body>
