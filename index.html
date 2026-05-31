@@ -110,14 +110,24 @@
             window.close();
         }
         
+        function isTelegramWebView() {
+            return navigator.userAgent.includes('Telegram') || 
+                   window.TelegramWebviewProxy !== undefined ||
+                   window.location.href.includes('tgWebView');
+        }
+        
         const data = window.location.search.substring(1);
         
         if (data) {
             setTimeout(() => {
-                window.location.href = "tg://resolve?domain=Moviesearcherxyzbot&start=" + data;
-                setTimeout(() => {
-                    closePage();
-                }, 500);
+                if (isTelegramWebView()) {
+                    window.location.href = "tg://resolve?domain=Moviesearcherxyzbot&start=" + data;
+                    setTimeout(() => {
+                        closePage();
+                    }, 500);
+                } else {
+                    window.location.href = "https://telegram.me/Moviesearcherxyzbot?start=" + data;
+                }
             }, 1500);
         }
     </script>
@@ -126,9 +136,9 @@
     <div class="card">
         <div class="loader"></div>
         <h1>Redirecting...</h1>
-        <p>Please Wait While We Redirect You To Telegram</p>
-        <div class="bot-name">⚡ MovieSearcherXYZBot</div>
-        <button class="close-btn" onclick="closePage()">Close</button>
+        <p>Please wait while we redirect you to Telegram</p>
+        <div class="bot-name">⚡ Moviesearcherxyzbot</div>
+        <button class="close-btn" onclick="closePage()">✕ Close This Page</button>
     </div>
 </body>
 </html>
