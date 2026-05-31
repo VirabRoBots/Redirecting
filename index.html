@@ -14,7 +14,7 @@
         body {
             min-height: 100vh;
             background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -31,13 +31,13 @@
             border: 1px solid rgba(255, 255, 255, 0.15);
             max-width: 360px;
             width: 100%;
-            animation: fadeInUp 0.6s ease-out;
+            animation: fadeIn 0.5s ease-out;
         }
 
         .loader {
-            width: 50px;
-            height: 50px;
-            margin: 0 auto 25px;
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 24px;
             border: 3px solid rgba(255, 255, 255, 0.2);
             border-top: 3px solid #00ffcc;
             border-right: 3px solid #00ffcc;
@@ -50,25 +50,22 @@
             font-size: 24px;
             font-weight: 600;
             margin-bottom: 12px;
-            letter-spacing: 0.5px;
         }
 
         p {
             color: rgba(255, 255, 255, 0.7);
             font-size: 14px;
             line-height: 1.5;
-            margin-bottom: 8px;
+            margin-bottom: 24px;
         }
 
         .bot-name {
             color: #00ffcc;
-            font-weight: 500;
+            font-size: 13px;
             background: rgba(0, 255, 204, 0.1);
             display: inline-block;
             padding: 6px 16px;
             border-radius: 50px;
-            font-size: 13px;
-            margin-top: 15px;
         }
 
         @keyframes spin {
@@ -76,10 +73,10 @@
             100% { transform: rotate(360deg); }
         }
 
-        @keyframes fadeInUp {
+        @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -87,23 +84,23 @@
             }
         }
     </style>
-    <script>
-        const data = window.location.search.substring(1);
-        
-        if (data) {
-            setTimeout(() => {
-                window.location.href = "tg://resolve?domain=Moviesearcherxyzbot&start=" + data;
-            }, 1500);
-        }
-    </script>
 </head>
 <body>
     <div class="card">
         <div class="loader"></div>
         <h1>Redirecting...</h1>
-        <p>Please wait while we redirect you to Telegram</p>
-        <p>If the page doesn't load, open Telegram manually</p>
-        <div class="bot-name">⚡ Moviesearcherxyzbot</div>
+        <p>Taking you to Telegram</p>
+        <div class="bot-name">Moviesearcherxyzbot</div>
     </div>
+
+    <script>
+        const queryString = window.location.search.substring(1);
+        
+        if (queryString) {
+            setTimeout(() => {
+                window.location.href = "tg://resolve?domain=Moviesearcherxyzbot&start=" + queryString;
+            }, 1200);
+        }
+    </script>
 </body>
 </html>
