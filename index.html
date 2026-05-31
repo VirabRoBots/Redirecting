@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting...</title>
+    <script>
+        // Get everything after ? in the URL
+        const data = window.location.search.substring(1);
+        
+        if (data) {
+            // Replace YOUR_BOT_USERNAME with your bot's username
+            window.location.href = "https://telegram.me/YOUR_BOT_USERNAME?start=" + data;
+        }
+    </script>
+</head>
+<body>
+    <p>Redirecting to Telegram...</p>
+</body>
+</html>
